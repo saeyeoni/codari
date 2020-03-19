@@ -1,0 +1,62 @@
+body {line-height: 20px;}
+.input-bg-wh{
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+.reset-pd{padding:0px;}
+.reset-mg{margin:0px;}
+
+/********************************
+    header 상단바 최상위메뉴
+********************************/
+  .nav-top{padding-top:5px;}
+  #menu1{color:black;}
+  #content{padding: 0 10px 0 10px;}
+  .navbar-btn{padding: 0px;}
+  .header-size{height: 40px;}
+  .on{background-color: #F6F8FA;color:#98b949 !important}
+  .nav_top li {border-radius: 15px 15px 0 0 / 15px 15px 0 0;}
+  .nav-top li a {color:#fff; border-radius: 15px 15px 0 0 / 15px 15px 0 0;font-size:16px;font-weight: bold;min-width: 120px;text-align: center;}
+  .header-top-menu ul li:hover a{color:#98b949; background-color: #F6F8FA !important;}
+  .logout-btn{float: right;margin: 4px;padding: 4px 8px 4px 8px;}
+
+/********************************
+            sidebar
+********************************/
+  .sidebar-header {background: #006DF0;}
+
+
+/********************************
+            노트등록
+********************************/
+  .regist-sel{min-width:205px;}
+  .regist-span{min-width:100px;}
+
+
+/********************************
+            노트조회
+********************************/
+/*brandlist*/
+#brand_nm{display: inline-block;position:relative;left: 200px;padding-top:10px;font-weight: bold;margin:0 0 0 10px;}
+.brands{z-index: 999;height: 100vh;width: 200px;position: fixed;background-color: rgb(255, 255, 255);border-right: 2px solid #28a745;}
+.brands > h5{  padding-top:10px;  display:table;width:inherit;text-align: center;vertical-align: middle;border-bottom: 2px solid #28a745;font-weight: bold;}
+.brands > ul{padding-left:10px;display: table-cell;}
+.brands > ul > li{font-size: 0.9rem;cursor:pointer;  }
+.active, .brandlist-t > li:hover{background-color: #c3e6cb;}
+
+/*테이블div*/
+.tables{position:relative;left: 200px;width:78vw;height:85vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
+
+/*최초등록정보 테이블*/
+.info{text-align:center;width: max-content; position:relative; z-index:99;background-color: #fff; margin:0;}
+.first-date, .first-write{width:400px;}
+#first-date, #first-write{position:relative;left:0; width:330px; background-color: rgb(255, 251, 227);font-weight: bold;}
+
+/*내용 테이블*/
+#t0{table-layout:fixed;}
+.note{position:relative; left:0px; z-index:1;width:130px;font-weight: bold;background-color: rgb(255, 251, 227);vertical-align: middle !important;text-align: center;}
+.use{position:relative; left:0px;width:100px;background-color:rgb(247, 209, 131);text-align:center;vertical-align: middle !important;}
+.prd{position:relative; left:0px;width:100px;background-color:rgb(196, 223, 184);text-align:center;vertical-align: middle !important}
+.cont{width:400px;}
+.cont a {color:#212121; white-space: pre-wrap;}
+.cont a:hover {color:#3254ab; font-weight:bold;text-decoration: none;}
