@@ -39,14 +39,12 @@ class ST01Controller extends Controller
       if(!$emp_nb){
         return response()->json();
       }
-
-
       $firQR = DB::table('pgm_masters')
-      ->selectRaw("m_pgm_id as pgm_id, '' emp_id, '' permit, m_pgm_nm")
+      ->selectRaw("m_pgm_id as pgm_id, '' emp_id, '' permit, '' edit_permit, m_pgm_nm")
       ->get();
 
       $secQR = DB::table('pgm_permits')
-      ->select('pgm_permits.pgm_id','pgm_permits.emp_id','pgm_permits.permit','pgm_masters.m_pgm_nm')
+      ->select('pgm_permits.pgm_id','pgm_permits.emp_id','pgm_permits.permit','pgm_permits.edit_permit','pgm_masters.m_pgm_nm')
       ->leftJoin('pgm_masters', 'pgm_id', '=' , 'pgm_masters.m_pgm_id')
       ->where('pgm_permits.emp_id' ,$emp_nb)
       ->get();
@@ -94,18 +92,28 @@ class ST01Controller extends Controller
       $emp_nb = $request->emp_nb2;
       $array = json_decode($re_json);
       $checkEmp = PgmPermit::where('emp_id',$emp_nb)->count();
-      if($checkEmp != 0){
-        return response()->json('error');
-        break;
+      if($checkEmp != 0){ //이미 저장 기록이있으면 업데이트
+        foreach($array as $col){
+        PgmPermit::where([['emp_id',$emp_nb], ['pgm_id',$col->pgm_id]])
+        ->update([
+          'pgm_id'=>$col->pgm_id,
+          'permit'=>$col->permit,
+          'edit_permit'=>$col->edit_permit,
+
+        ]);
+      }
+      return response()->json('edit_success');
       }
       foreach($array as $col){
         PgmPermit::create([
           'pgm_id'=>$col->pgm_id,
           'emp_id'=>$emp_nb,
           'permit'=>$col->permit,
+          'edit_permit'=>$col->edit_permit,
+
         ]);
       }
-      return response()->json('success');
+      return response()->json('save_success');
       break;
     }
 
@@ -136,26 +144,6 @@ class ST01Controller extends Controller
         return jsFunCall("parent.search();");
       }
       break;
-      case 'update2' :
-      $re_json = $request->gridPgm;
-      $emp_nb = $request->emp_nb2;
-      $array = json_decode($re_json);
-      $checkEmp = PgmPermit::where('emp_id',$emp_nb)->count();
-      if($checkEmp == 0){
-        return response()->json('error');
-        break;
-      }
-      foreach($array as $col){
-        PgmPermit::where([['emp_id',$emp_nb], ['pgm_id',$col->pgm_id]])
-        ->update([
-          'pgm_id'=>$col->pgm_id,
-          'permit'=>$col->permit,
-        ]);
-      }
-      return response()->json('success');
-      break;
-
     }
-
   }
 }

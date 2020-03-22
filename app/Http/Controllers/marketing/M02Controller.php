@@ -2,11 +2,13 @@
 namespace App\Http\Controllers\marketing;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
 use App\Models\BrandMaster;
 use App\Models\NoteRegist;
 use App\Models\NoteHistory;
 use App\Models\setting\EmpMaster;
+use App\Models\setting\PgmPermit;
 
 function alertMasg($param){
   echo("<script>alert('".$param."');</script>");
@@ -17,10 +19,14 @@ function jsFunCall($param){
 class M02Controller extends Controller
 {
   public function show(NoteRegist $id){
+    $login_id = session()->get('login_id');
+    $get_edit_permit =PgmPermit::where([['emp_id',$login_id],['edit_permit',1]])->get('pgm_id')->toArray();
+    $edit_permit = Arr::flatten($get_edit_permit);
+    $popup_div = "edit";
     $history_list = NoteHistory::where('note_id',$id->id)
     ->orderBy('id','desc')
     ->get();
-    return view('popup',compact('id','history_list'));
+    return view('popup',compact('id','history_list','edit_permit','popup_div'));
   }
   public function softDelete(NoteRegist $id){
     $brand_id = $id->brand_id;
@@ -50,6 +56,7 @@ class M02Controller extends Controller
   public function update(NoteRegist $id){
     $brand_id = $id->brand_id;
     $brand_nm = $id->brand->nm;
+    $emp_id = session()->get('login_id');
     $request = request();
     $new_content = $request->content;
     NoteRegist::where('id',$id->id)
@@ -58,6 +65,7 @@ class M02Controller extends Controller
     NoteHistory::create([
       'note_id' => $id->id,
       'content'=>$new_content,
+      'emp_id' => $emp_id,
     ]);
     alertMasg("수정되었습니다.");
     return jsFunCall("opener.liClick('".$brand_id."','".$brand_nm."'); close();");
@@ -65,29 +73,52 @@ class M02Controller extends Controller
 
 
   public function getBrands(){
-    $brands = BrandMaster::all();
-    return response()->json(array('brands' => $brands ));
+    $request = request();
+    return NoteRegist::getbrand($request->pgm);
   }
+
+
+  public function delBrand($id){
+    $request=request();
+    $pgm = $request->pgm;
+    $result = BrandMaster::where([['id',$id],['pgm_div',$pgm]])->update(['use_yn'=>1]);
+    return $result;
+  }
+
+
   public function getList(){
     $request = request();
+
     $info = NoteRegist::select('note_regists.emp_id','emp_masters.emp_nm','note_regists.created_at')
     ->leftjoin('emp_masters', 'note_regists.emp_id','=','emp_masters.emp_nb')
-    ->where([['note_regists.first_div','1'],['note_regists.brand_id',$request->_process],['note_regists.pgm_div','marketing']])
+    ->where([['note_regists.first_div','1'],['note_regists.brand_id',$request->brand_id],['note_regists.pgm_div','marketing']])
     ->get();
-    $col_max =NoteRegist::where([['brand_id',$request->_process],['note_regists.pgm_div','marketing']])->max('column_index');
+    $col_max =NoteRegist::where([['brand_id',$request->brand_id],['note_regists.pgm_div','marketing']])->max('column_index');
     $n = NoteRegist::max('note_type');
-    // $num = $n->count();
-    $a = array();
-    for($i=0;$i<=$n;$i++){
-      $v = NoteRegist::where([
-        ['brand_id',$request->_process],
-        ['note_type',$i],
-        ['pgm_div','marketing']
-        ])->orderBy('note_type')->orderBy('use_type')->orderBy('prd_type')->orderBy('created_at')->get()->toArray();
-        array_push($a, ...$v);
+    $p = array();
+    $row = NoteRegist::where([['pgm_div','marketing'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['use_type','prd_type'])->count();
+
+    $m = NoteRegist::where([['pgm_div','marketing'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['note_type','use_type','prd_type'])->toArray();
+    $project_map_list = NoteRegist::where([['pgm_div','marketing'],['note_type', '4'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['note_type','map_name','prd_type'])->toArray();
+
+
+
+    $noterow = [];
+    $userow = [];
+      for($i=0;$i<=$n;$i++){
+        if($i == '0' || $i=='1'){
+          $v = NoteRegist::where([['pgm_div','marketing'],['note_type',$i],['brand_id',$request->brand_id]])->groupBy('prd_type')->get('prd_type')->count();
+        }
+        if($i == 2 || $i==3){
+          $v = NoteRegist::where([['pgm_div','marketing'],['note_type',$i],['brand_id',$request->brand_id]])->groupBy('use_type')->get('use_type')->count();
+        }
+        if($i==4){
+          $v = NoteRegist::where([['pgm_div','marketing'],['note_type',$i],['brand_id',$request->brand_id]])->groupBy('map_name')->get('map_name')->count();
+        }
+        array_push($noterow , $v);
       }
 
-      return response()->json(array('col_max'=>$col_max,'n'=>$n,'a'=>$a,'info'=>$info));
-    }
+      return response()->json(array('col_max'=>$col_max,'info'=>$info,'m'=>$m,'row_num'=>$noterow, 'pml'=>$project_map_list));
 
+    }
   }

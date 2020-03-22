@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\ipCheckTrait;
 use App\Models\setting\EmpMaster;
 use App\Models\setting\PgmPermit;
 use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Traits\ipCheckTrait;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class LoginController extends Controller
@@ -54,8 +54,6 @@ class LoginController extends Controller
       }
       $get_nm = EmpMaster::where('emp_nb', $user_id)->value('emp_nm');
       $get_part = EmpMaster::where('emp_nb', $user_id)->value('part');
-      $get_permit = PgmPermit::where([['emp_id',$user_id],['permit',0]])->whereOr('permit','')->get('pgm_id')->toArray();
-      $permit = Arr::flatten($get_permit);
       $get_overYN = EmpMaster::where('emp_nb', $user_id)->value('overseas_ny');
       $country_code = $this->ipCheck();
 
@@ -67,7 +65,6 @@ class LoginController extends Controller
                 'overseas_conn' => $conn,
                 'emp_nm' => $get_nm,
                 'emp_part' => $get_part,
-                'pgm_permit' => $permit,
               ]);
       return response()->json(['SUCCESS']);
       break;
@@ -78,7 +75,7 @@ class LoginController extends Controller
 
       $updateQR =EmpMaster::where('emp_nb', $user_id)
                             ->update(['login_pw' => bcrypt($new_pw)]);
-      return response()->json(['SUCCESS']);
+      return 'success';
       break;
     }
   }
