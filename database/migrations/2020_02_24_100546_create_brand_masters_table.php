@@ -15,7 +15,7 @@ class CreateBrandMastersTable extends Migration
     {
         Schema::create('brand_masters', function (Blueprint $table) {
             $table->bigIncrements('id')->comment("브랜드마스터 기본키");
-            $table->string('nm',50)->comment("브랜드명");
+            $table->string('nm',30)->comment("브랜드명");
             $table->string('pgm_div',15)->nullable()->comment('메뉴 구분');
             $table->unsignedTinyInteger('use_yn')->default('0')->comment("사용유무 0:사용 1:미사용");
         });

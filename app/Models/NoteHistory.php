@@ -14,4 +14,8 @@ class NoteHistory extends Model
   public function noteRegist(){
     return $this->belongsTo(NoteRegist::class, 'note_id','id');
   }
+  public function empmaster(){
+    return $this->belongsTo(setting\EmpMaster::class, 'emp_id');
+  }
+
 }

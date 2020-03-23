@@ -20,6 +20,8 @@ class CreatePgmPermitsTable extends Migration
             $table->string('permit',8)->comment("프로그램 권한 true/false");
             $table->string('edit_permit',8)->comment("수정권한 true/false");
 
+
+
         });
     }
 

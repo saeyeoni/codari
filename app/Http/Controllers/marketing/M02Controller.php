@@ -98,7 +98,7 @@ class M02Controller extends Controller
     $p = array();
     $row = NoteRegist::where([['pgm_div','marketing'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['use_type','prd_type'])->count();
 
-    $m = NoteRegist::where([['pgm_div','marketing'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['note_type','use_type','prd_type'])->toArray();
+    $m = NoteRegist::where([['pgm_div','marketing'],['brand_id',$request->brand_id]])->orderBy('note_type','asc')->orderBy('id')->get()->groupBy(['note_type','use_type','prd_type'])->toArray();
     $project_map_list = NoteRegist::where([['pgm_div','marketing'],['note_type', '4'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['note_type','map_name','prd_type'])->toArray();
 
 

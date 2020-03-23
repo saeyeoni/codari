@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use App\Models\setting\PgmPermit;
 
 
-
 class CheckSession
 {
     /**

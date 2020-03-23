@@ -154,9 +154,11 @@
           <div class="col-sm-3 offset-3 reset-pd" >
             <button  class="btn btn-warning btn-block" type="button" name="button" onclick="updateNote()"><i class="fas fa-edit"></i> 수정</button>
           </div>
+          @if(Session::get('login_grade') == 1 )
           <div class="col-sm-3  reset-pd" >
             <button  class="btn btn-danger btn-block" type="button" name="button" onclick='deleteNote()'><i class="fas fa-trash-alt"></i> 삭제</button>
           </div>
+        @endif
         @endif
       @else
         <div class="col-sm-4  offset-4 reset-pd">

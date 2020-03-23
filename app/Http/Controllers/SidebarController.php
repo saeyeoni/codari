@@ -16,7 +16,6 @@ class SidebarController extends Controller
   $sidebar = $this->sidebar($menu_id)->all();
   $pgm_info = $this->sidebar($menu_id)->where('m_pgm_id',$pgm_id)->first();
   $request = Request();
-
   if($request->_process){
     $src = $menu_id.'\\'.$pgm_id.'Controller@index';
     return \App::call("App\Http\Controllers\\".$src,['pgm_info'=>$pgm_info]);
@@ -32,6 +31,10 @@ class SidebarController extends Controller
 }
 public function store($menu_id,$pgm_id){
   $src = $menu_id.'\\'.$pgm_id.'Controller@store';
+  return \App::call("App\Http\Controllers\\".$src);
+}
+public function create($menu_id,$pgm_id){
+  $src = $menu_id.'\\'.$pgm_id.'Controller@create';
   return \App::call("App\Http\Controllers\\".$src);
 }
 public function update($menu_id,$pgm_id){

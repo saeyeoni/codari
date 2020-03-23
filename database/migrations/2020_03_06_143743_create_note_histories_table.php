@@ -21,6 +21,7 @@ class CreateNoteHistoriesTable extends Migration
             $table->foreign('note_id')->references('id')->on('note_regists');
             $table->string('emp_id',5)->comment('작성자 아이디');
 
+
         });
     }
 

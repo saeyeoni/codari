@@ -22,21 +22,21 @@
     if( setting != -1){
       document.querySelector("#setting > a").classList.add("on");
     }
-    if( m01 != -1){
-      document.querySelector("#M01").classList.add("sidebar-on");
-    }
-    if( m02 != -1){
-      document.querySelector("#M02").classList.add("sidebar-on");
-    }
-    if( o01 != -1){
-      document.querySelector("#O01").classList.add("sidebar-on");
-    }
-    if( o02 != -1){
-      document.querySelector("#O02").classList.add("sidebar-on");
-    }
-    if( st01 != -1){
-      document.querySelector("#ST01").classList.add("sidebar-on");
-    }
+    // if( m01 != -1){
+    //   document.querySelector("#M01").classList.add("sidebar-on");
+    // }
+    // if( m02 != -1){
+    //   document.querySelector("#M02").classList.add("sidebar-on");
+    // }
+    // if( o01 != -1){
+    //   document.querySelector("#O01").classList.add("sidebar-on");
+    // }
+    // if( o02 != -1){
+    //   document.querySelector("#O02").classList.add("sidebar-on");
+    // }
+    // if( st01 != -1){
+    //   document.querySelector("#ST01").classList.add("sidebar-on");
+    // }
 
 
 

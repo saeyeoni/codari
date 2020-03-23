@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class BrandMaster extends Model
 {
   protected $guarded=[];
-  
   public $timestamps = false;
+
+
 
 }

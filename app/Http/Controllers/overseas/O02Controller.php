@@ -74,6 +74,8 @@ class O02Controller extends Controller
 
   public function getBrands(){
     $request = request();
+    dd(NoteRegist::getbrand($request->pgm));
+
     return NoteRegist::getbrand($request->pgm);
   }
   public function delBrand($id){
@@ -92,17 +94,13 @@ class O02Controller extends Controller
     ->where([['note_regists.first_div','1'],['note_regists.brand_id',$request->brand_id],['note_regists.pgm_div','overseas']])
     ->get();
     $col_max =NoteRegist::where([['brand_id',$request->brand_id],['note_regists.pgm_div','overseas']])->max('column_index');
-    $n = NoteRegist::max('note_type');
-    $p = array();
-    $row = NoteRegist::where([['pgm_div','overseas'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['use_type','prd_type'])->count();
 
-    $m = NoteRegist::where([['pgm_div','overseas'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['note_type','use_type','prd_type'])->toArray();
+
+    $m = NoteRegist::where([['pgm_div','overseas'],['brand_id',$request->brand_id]])->orderBy('note_type','asc')->orderBy('id')->get()->groupBy(['note_type','use_type','prd_type'])->toArray();
     $project_map_list = NoteRegist::where([['pgm_div','overseas'],['note_type', '4'],['brand_id',$request->brand_id]])->orderBy('id')->get()->groupBy(['note_type','map_name','prd_type'])->toArray();
 
-
-
+    $n = NoteRegist::max('note_type');
     $noterow = [];
-    $userow = [];
       for($i=0;$i<=$n;$i++){
         if($i == '0' || $i=='1'){
           $v = NoteRegist::where([['pgm_div','overseas'],['note_type',$i],['brand_id',$request->brand_id]])->groupBy('prd_type')->get('prd_type')->count();

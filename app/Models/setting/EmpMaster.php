@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EmpMaster extends Model
 {
+  protected $keyType = 'string';
   protected $primaryKey = 'emp_nb';
   protected $guarded=[];
 

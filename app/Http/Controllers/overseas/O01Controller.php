@@ -47,7 +47,7 @@ class O01Controller extends Controller
           'nm' => $request->direct_brand,
           'pgm_div' => $request->pgm,
         ]);
-        $brand_id = BrandMaster::where('nm',$request->direct_brand)->value('id');
+        $brand_id = BrandMaster::orderBy('id', 'desc')->value('id');
       }else{
         $brand_id = $request->brand_id;
       }

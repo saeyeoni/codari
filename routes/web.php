@@ -38,6 +38,7 @@ Route::GET('overseas/O02/{id}','overseas\O02Controller@show' );
 Route::DELETE('overseas/O02/{id}','overseas\O02Controller@softDelete' );
 Route::PATCH('overseas/O02/{id}','overseas\O02Controller@update' );
 
+// Route::GET('/setting/ST01','SidebarController@index')->middleware('checking');
 Route::prefix('{menu_id}')->middleware('checking')->group(function (){
     Route::GET('{pgm_id}', 'SidebarController@index');
     Route::GET('{pgm_id}/create', 'SidebarController@create');

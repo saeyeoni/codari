@@ -19,8 +19,8 @@ class NoteRegist extends Model
       ][$attribute];
     }
   protected $casts = [
-    'created_at' => 'datetime:Y-m-d',
-    'updated_at' => 'datetime:Y-m-d',
+    'created_at' => 'date:Y-m-d',
+    'updated_at' => 'date:Y-m-d',
   ];
   public function empmaster(){
     return $this->belongsTo(setting\EmpMaster::class, 'emp_id');
@@ -36,7 +36,7 @@ class NoteRegist extends Model
         $query->where([['use_yn', 0],['pgm_div',$pgm]]);
       }
     ])->groupBy('brand_id')->get('brand_id');
+
     return response()->json(array('brands' => $brands ));
-    dd($brand);
   }
 }

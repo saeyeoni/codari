@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-
+/*로그인시 해외접속 가능 판단을 위해 ipCheckTrait사용
+  로컬 작업시 ipCheckTrait 미사용 (주석처리)*/
 class LoginController extends Controller
 {
-  use ipCheckTrait;
+  //로컬작업시 ipCheckTrait 미사용
+  // use ipCheckTrait;
   public function login(){
     return view('login.login');
   }
@@ -29,7 +31,6 @@ class LoginController extends Controller
 
       $checkQR = EmpMaster::where('emp_nb', $user_id)->first(); //object 네이밍시 서술, 단수형
       $checkQR2 = EmpMaster::where('emp_nb', $user_id);
-
       /*
       where 조건을 걸고 first() 또는 get() 메서드를 사용하면
       stdClass 객체를 반환하게 된다.
@@ -55,11 +56,13 @@ class LoginController extends Controller
       $get_nm = EmpMaster::where('emp_nb', $user_id)->value('emp_nm');
       $get_part = EmpMaster::where('emp_nb', $user_id)->value('part');
       $get_overYN = EmpMaster::where('emp_nb', $user_id)->value('overseas_ny');
-      $country_code = $this->ipCheck();
+      //로컬작업시 ipCheckTrait 미사용
 
-      if($get_overYN == "불가능" && $country_code!="KR"){
-        return response()->json(['CONN_ERROR']);
-      }
+      // $country_code = $this->ipCheck();
+      //
+      // if($get_overYN == "불가능" && $country_code!="KR"){
+      //   return response()->json(['CONN_ERROR']);
+      // }
       session(['login_id' => $user_id,
                 'login_grade' => $grade,
                 'overseas_conn' => $conn,

@@ -21,6 +21,7 @@ trait ipCheckTrait
 
     curl_close($ch);
     $decodeJsonData = json_decode($data, true);
+    dd($decodeJsonData);
     return ($decodeJsonData['whois']['countryCode']);
   }
 
