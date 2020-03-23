@@ -20,8 +20,6 @@
   <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="/css/jqx.base.css">
   <link rel="stylesheet" href="/css/items.css">
-
-
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript" src="/js/jqx-all.js"></script>
   <script type="text/javascript" src="/js/validation.js"></script>
@@ -50,11 +48,11 @@
       </nav>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid reset-pd">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="logo-pro">
-            <a href="menu"><img class="main-logo" src="/images/logosn.png" alt="" /></a>
+          <div class="logo-pro" style="height:50px;">
+            <a href="menu"><img class="main-logo" src="/images/logosn.png"alt="" /></a>
           </div>
         </div>
       </div>
@@ -76,10 +74,10 @@
                   <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <div class="header-top-menu">
                       <ul class="nav nav-top">
-                        <li id="marketing" class="nav-item btn-blueset"><a href="/marketing" class="nav-link">마케팅</a></li>
-                        <li id="overseas" class="nav-item btn-blueset"><a href="/overseas" class="nav-link">해외영업</a></li>
+                        <li id="marketing" class="nav-item btn-blueset"><a href="/marketing/M02" class="nav-link">마케팅</a></li>
+                        <li id="overseas" class="nav-item btn-blueset"><a href="/overseas/O02" class="nav-link">해외영업</a></li>
                         @if (Session::get('login_grade')==1)
-                          <li id="setting" class="nav-item btn-blueset"><a href="/setting" class="nav-link">설정</a></li>
+                          <li id="setting" class="nav-item btn-blueset"><a href="/setting/ST01" class="nav-link">설정</a></li>
                         @endif
                       </ul>
                     </div>
