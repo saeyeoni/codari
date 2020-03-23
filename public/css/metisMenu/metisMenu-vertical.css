@@ -67,7 +67,7 @@ padding: 13px 10px 10px 10px;
 .sidebar-nav .metismenu a:active {
     color: #555;
     text-decoration: none;
-    background: #e12503;
+    /* background: #e12503; */
 }
 .sidebar-nav .metismenu li .icon-wrap{
 	margin-right:5px;

@@ -12,6 +12,7 @@ body {line-height: 20px;}
   .nav-top{padding-top:5px;}
   #menu1{color:black;}
   #content{padding: 0 10px 0 10px;}
+  #content > a {position:fixed;}
   .navbar-btn{padding: 0px;}
   .header-size{height: 40px;}
   .on{background-color: #F6F8FA;color:#98b949 !important}
@@ -41,22 +42,32 @@ body {line-height: 20px;}
 .brands{z-index: 999;height: 100vh;width: 200px;position: fixed;background-color: rgb(255, 255, 255);border-right: 2px solid #28a745;}
 .brands > h5{  padding-top:10px;  display:table;width:inherit;text-align: center;vertical-align: middle;border-bottom: 2px solid #28a745;font-weight: bold;}
 .brands > ul{padding-left:10px;display: table-cell;}
-.brands > ul > li{font-size: 0.9rem;cursor:pointer;  }
-.active, .brandlist-t > li:hover{background-color: #c3e6cb;}
+.brands > ul >span{display: flex; font-size: 0.95rem; line-height: 18px; margin-bottom: 15px;}
+.brands > ul >span >i {cursor:pointer; margin-right:10px; color:#4e4e4e }
+.brands > ul >span >i:hover { color:#fa1010;}
+
+
+.brands > ul > span >li{cursor:pointer;  }
+.active, .brandlist-t > span> li:hover{background-color: #c3e6cb;}
 
 /*테이블div*/
-.tables{position:relative;left: 200px;width:78vw;height:85vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
+/* .tables{position:relative;left: 200px;width:70%; height:80%; overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;} */
+.tables{position:relative;left: 200px;width:72vw;height:80vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
 
 /*최초등록정보 테이블*/
-.info{text-align:center;width: max-content; position:relative; z-index:99;background-color: #fff; margin:0;}
+.info{text-align:center;width: max-content; position:relative; background-color: #fff; margin:0;z-index:99;}
 .first-date, .first-write{width:400px;}
-#first-date, #first-write{position:relative;left:0; width:330px; background-color: rgb(255, 251, 227);font-weight: bold;}
+#first-date, #first-write{position:relative;left:0; width:330px; background-color: rgb(255, 251, 227);font-weight: bold; z-index:99;}
 
 /*내용 테이블*/
 #t0{table-layout:fixed;}
-.note{position:relative; left:0px; z-index:1;width:130px;font-weight: bold;background-color: rgb(255, 251, 227);vertical-align: middle !important;text-align: center;}
-.use{position:relative; left:0px;width:100px;background-color:rgb(247, 209, 131);text-align:center;vertical-align: middle !important;}
-.prd{position:relative; left:0px;width:100px;background-color:rgb(196, 223, 184);text-align:center;vertical-align: middle !important}
-.cont{width:400px;}
+.note{position:relative; left:0px; z-index:9;width:130px;font-weight: bold;background-color: rgb(255, 251, 227);vertical-align: middle !important;text-align: center;}
+.use{position:relative; left:0px; z-index:9; width:100px;background-color:rgb(247, 209, 131);text-align:center;vertical-align: middle !important;}
+.prd{position:relative; left:0px; z-index:9; width:100px;background-color:rgb(196, 223, 184);text-align:center;vertical-align: middle !important}
+.cont{width:400px; z-index:0;}
 .cont a {color:#212121; white-space: pre-wrap;}
 .cont a:hover {color:#3254ab; font-weight:bold;text-decoration: none;}
+.nonetd {width:400px; background-color: #e4e4e4; }
+.regist{width:400px;  background-color:#daf1f7 ;text-align: center;}
+.regist a{color:blue;}
+.regist a:hover{ color:#f96449;font-weight:bold; text-decoration: none;}
