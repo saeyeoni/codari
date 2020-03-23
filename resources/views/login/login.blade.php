@@ -172,13 +172,17 @@ function login_check(){
         inputclear();
 
       }else if(data=="SYSTEM_ERROR"){
-        alert("System Error! 관리자에게 문의하세요.");
+        alert("SYSTEM ERROR! 관리자에게 문의하세요.");
       }else if(data == "CONN_ERROR"){
         alert("해외에서 접속할 수 없습니다. 관리자에게 문의하세요.");
       }
       else{
         location.href = "/main";
       }
+    },
+    error:function(data){
+      alert("SYSTEM ERROR! 관리자에게 문의하세요.");
+      // location.reload();
     }
   });
 }
@@ -204,12 +208,15 @@ function login_update(){
       PROC: "NEW_PW",
       _token : $('meta[name="csrf-token"]').attr('content')
     },
-    dataType: "json",
+    dataType: "text",
     success: function(data) {
-      if(data=="SUCCESS"){
         alert("비밀번호 설정이 완료되었습니다. 다시 로그인 해주세요.");
-        location.reload();
-      }
+        $("#login_modal").modal('hide');
+        document.querySelector("input[name=user_pw]").value = "";
+        document.querySelector("input[name=user_pw]").focus();
+    },
+    error: function(data){
+      alert("SYSTEM ERROR! 관리자에게 문의하세요.");
     }
   });
 }
