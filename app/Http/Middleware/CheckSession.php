@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use App\Models\setting\PgmPermit;
+
 
 
 class CheckSession
@@ -28,12 +30,18 @@ class CheckSession
         }
       }else{
         if(session()->has('login_id')){
-          $permit_list = session()->get('pgm_permit');
-          $check_permit = Str::contains($request->path(), $permit_list);
+          $login_id = session()->get('login_id');
+          $get_permit = PgmPermit::where([['emp_id',$login_id],['permit',0]])->whereOr('permit','')->get('pgm_id')->toArray();
+          $permit = Arr::flatten($get_permit);
+          $check_permit = Str::contains($request->path(), $permit);
           if($check_permit == false){
             return $next($request);
           }else{
+            $check_permit = Str::contains($request->path(), 'create');
             session()->flash('error','접근권한이 없습니다. 관리자에게 문의해주세요');
+            if($check_permit == true){
+              return $next($request);
+            }
             return redirect('main');
           }
         }else{
