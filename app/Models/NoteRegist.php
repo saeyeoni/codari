@@ -31,4 +31,12 @@ class NoteRegist extends Model
   public function histories(){
     return $this->hasmany(NoteHistory::class);
   }
+  public static function getbrand($pgm){
+    $brands = NoteRegist::with(['brand'=> function ($query) use($pgm){
+        $query->where([['use_yn', 0],['pgm_div',$pgm]]);
+      }
+    ])->groupBy('brand_id')->get('brand_id');
+    return response()->json(array('brands' => $brands ));
+    dd($brand);
+  }
 }
