@@ -17,8 +17,8 @@ class CreatePgmPermitsTable extends Migration
             $table->bigIncrements('id');
             $table->string('pgm_id',20)->comment("프로그램아이디");
             $table->string('emp_id',5)->comment("사원번호");
-            $table->string('permit',8)->comment("권한 true/false");
-
+            $table->string('permit',8)->comment("프로그램 권한 true/false");
+            $table->string('edit_permit',8)->comment("수정권한 true/false");
 
         });
     }

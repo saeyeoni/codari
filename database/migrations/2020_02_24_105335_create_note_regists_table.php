@@ -20,8 +20,8 @@ class CreateNoteRegistsTable extends Migration
           $table->string('emp_id',10)->comment('작성한 사용자');
           $table->unsignedInteger('note_type')->nullable()->comment('작성유형');
           $table->string('map_name',20)->nullable()->comment('project_map의 namespace');
-          $table->string('use_type',20)->default('　')->nullable()->comment('사용군');
-          $table->string('prd_type',20)->default('　')->nullable()->comment('제품군');
+          $table->string('use_type',20)->default('')->nullable()->comment('사용군');
+          $table->string('prd_type',20)->default('')->nullable()->comment('제품군');
           $table->unsignedInteger('column_index')->nullable()->comment('0부터 순서대로 열번호 증가');
           $table->unsignedTinyInteger('first_div')->default('0')->comment('1:최초작성 0:기본값');
           $table->text('content')->comment('내용');
