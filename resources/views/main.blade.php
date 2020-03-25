@@ -32,7 +32,7 @@
   </head>
   <body>
 
-    <div class="left-sidebar-pro">
+    {{-- <div class="left-sidebar-pro">
       <nav id="sidebar" class="">
         <div class="sidebar-header">
           <a href="/main"><img class="main-logo" src="/images/logo_new.png" alt="" /></a>
@@ -46,9 +46,9 @@
           </nav>
         </div>
       </nav>
-    </div>
+    </div> --}}
 
-    <div class="container-fluid reset-pd">
+    {{-- <div class="container-fluid reset-pd">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="logo-pro" style="height:50px;">
@@ -56,22 +56,18 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <div class="header-advance-area">
       <div class="header-top-area header-size">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="header-top-wraper">
-                <div class="row">
-                  <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                    <div class="menu-switcher-pro">
-                      <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn  navbar-btn">
-                        <i class="fa fa-bars"></i>
-                      </button>
+
+                  <div class="row">
+                    <div class="logobox">
+                      <a href="/main"><img class="main-logo" src="/images/logo_new.png" alt="" /></a>
+                      {{-- <strong><a href="/main"><img src="/images/logosn.png" alt="" /></a></strong> --}}
                     </div>
-                  </div>
-                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                     <div class="header-top-menu">
                       <ul class="nav nav-top">
                         <li id="marketing" class="nav-item btn-blueset"><a href="/marketing/M02" class="nav-link">마케팅</a></li>
@@ -90,8 +86,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
     <div class="all-content-wrapper">
       <div id="content">
         @yield('content')

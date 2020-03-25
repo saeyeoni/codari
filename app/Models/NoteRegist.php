@@ -31,12 +31,16 @@ class NoteRegist extends Model
   public function histories(){
     return $this->hasmany(NoteHistory::class);
   }
+
   public static function getbrand($pgm){
+    /*
+    쿼리빌더에서 제약을 걸 때 클로저 함수 사용.
+    클로저 함수 내에서 외부 변수를 사용해야 할때 use($pgm ,$name, $part, ...)처럼 해줘야한다
+    */
     $brands = NoteRegist::with(['brand'=> function ($query) use($pgm){
         $query->where([['use_yn', 0],['pgm_div',$pgm]]);
       }
     ])->groupBy('brand_id')->get('brand_id');
-
     return response()->json(array('brands' => $brands ));
   }
 }

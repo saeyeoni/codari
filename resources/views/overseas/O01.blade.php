@@ -147,8 +147,11 @@
     <div class="col-md-12 form-inline">
       @if(isset($popup_div))
       @if ($popup_div=='edit')
-        @if(Str::contains('O02',$edit_permit))
-          <div class="col-sm-3 offset-3 reset-pd" >
+        <div class="col-sm-3 reset-pd back-btn" >
+          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
+        </div>
+        @if(Str::contains('M02',$edit_permit))
+          <div class="col-sm-3 reset-pd" >
             <button  class="btn btn-warning btn-block" type="button" name="button" onclick="updateNote()"><i class="fas fa-edit"></i> 수정</button>
           </div>
           @if(Session::get('login_grade') == 1 )
@@ -158,16 +161,22 @@
         @endif
         @endif
       @else
-        <div class="col-sm-4  offset-4 reset-pd">
+        <div class="col-sm-4 reset-pd back-btn">
+          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
+
+        </div>
+        <div class="col-sm-4 reset-pd">
             <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('direct_store')"><i class="fas fa-save"></i> 저장</button>
         </div>
       @endif
       @else
-        <div class="col-md-6 col-sm-3">
-          <div class="col-md-2 offset-4 reset-pd" >
+        <div class="col-md-2 reset-pd" >
+          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
+        </div>
+          <div class="col-md-2 reset-pd" >
             <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('store')"><i class="fas fa-save"></i> 저장</button>
           </div>
-        </div>
+
 
       @endif
     </div>
@@ -207,6 +216,12 @@
 <script type="text/javascript">
 
 window.addEventListener("DOMContentLoaded", function(){
+  let filter = "win16|win32|win64|mac";
+  if(navigator.platform){
+    if(0 > filter.indexOf(navigator.platform.toLowerCase())){
+      $(".back-btn").css({"display" : "block"});
+    }
+  }
   @if(isset($popup_div))
     @if($popup_div == 'save')
     getSelectInfo('direct_store');

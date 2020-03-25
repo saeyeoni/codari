@@ -74,6 +74,7 @@ class M02Controller extends Controller
 
   public function getBrands(){
     $request = request();
+    //NoteRegist모델의 getBrand()를 리턴
     return NoteRegist::getbrand($request->pgm);
   }
 

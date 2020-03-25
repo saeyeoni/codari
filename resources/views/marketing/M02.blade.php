@@ -1,14 +1,18 @@
 
 <h5 class="page-head-line">
   {{ $pgm_info->m_pgm_nm  }} ({{$pgm_info->m_pgm_id}})
+  <button type="button" id="btn-regist" name="button" class="btn btn-sm btn-primary" onclick="location.href='/marketing/M01'"><i class="fas fa-file"></i> 노트등록</button>
+
 </h5>
 
 <div class="brands">
   <h5>고객사</h5>
-  <ul id="brandlist" class="brandlist-t"></ul>
+  <div class="brands_">
+    <ul id="brandlist" class="brandlist-t"></ul>
+  </div>
 </div>
-<H5 id="brand_nm">　</h5>
 
+<H5 id="brand_nm">　</h5>
   <div class="tables" id="tables" onscroll="scrollFun()">
     <table class="table table-bordered info" id="info">
       <tr id="fd"></tr>
@@ -137,11 +141,11 @@
             if( note_id == "4"){
               ut = Object.keys(data.pml[nt])[u];
               prd_max = Object.keys(data.pml[nt][ut]).length;
-              note = note + '<td class="use use'+note_id+'" colspan="2">'+ut+'</td>';
+              note = note + '<td class="subt subt'+note_id+'" colspan="2">'+ut+'</td>';
             }else if(note_id == "2" || note_id == "3"){
               ut = Object.keys(data.m[nt])[u];
               prd_max = Object.keys(data.m[nt][ut]).length;
-              note = note + '<td class="use use'+note_id+'" colspan="2">'+ut+'</td>';
+              note = note + '<td class="subt subt'+note_id+'" colspan="2">'+ut+'</td>';
             }else{
               ut = Object.keys(data.m[nt])[u];
               prd_max = Object.keys(data.m[nt][ut]).length;
@@ -239,6 +243,7 @@
     let yScroll = $(".tables").scrollTop();
     $(".note").css({"left" : xScroll});
     $(".use").css({"left" : xScroll});
+    $(".subt").css({"left" : xScroll});
     $(".prd").css({"left" : xScroll});
     $("#first-date").css({"left" : xScroll});
     $("#first-write").css({"left" : xScroll});

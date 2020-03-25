@@ -74,10 +74,9 @@ class O02Controller extends Controller
 
   public function getBrands(){
     $request = request();
-    dd(NoteRegist::getbrand($request->pgm));
-
     return NoteRegist::getbrand($request->pgm);
   }
+
   public function delBrand($id){
     $request=request();
     $pgm = $request->pgm;

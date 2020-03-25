@@ -131,7 +131,8 @@ body {}
 /*----------------------------------------*/
 /*  3. All Nested Class
 /*----------------------------------------*/
-.product-sales-chart, .analytics-info-cs, .tranffic-als-inner, .analytics-rounded, .single-new-trend, .personal-info-wrap, .author-widgets-single, .calender-inner, .product-status-wrap, .review-tab-pro-inner, .income-dashone-total, .analytics-edu-wrap, .analytics-sparkle-line, .analysis-progrebar, .sparkline8-list, .sparkline9-list, .sparkline7-list, .sparkline10-list, .sparkline12-list, .sparkline13-list, .sparkline14-list, .sparkline13-list, .sparkline11-list, .x-editable-list, .code-editor-single, .blog-details-inner, .charts-single-pro, .about-sparkline, .sparkline-list, .button-ad-wrap, .tab-content-details, .sparkline16-list, .sparkline15-list, .tinymce-single, .single-product-item, .courses-inner, .single-latest-item, .product-payment-inner-st, .profile-info-inner, .contact-panel, .widget-int-shape, .social-media-edu{
+.product-sales-chart, .analytics-info-cs, .tranffic-als-inner, .analytics-rounded, .single-new-trend, .personal-info-wrap, .author-widgets-single, .calender-inner, .product-status-wrap, .review-tab-pro-inner, .income-dashone-total, .analytics-edu-wrap, .analytics-sparkle-line, .analysis-progrebar, .sparkline8-list, .sparkline9-list, .sparkline7-list, .sparkline10-list, .sparkline12-list, .sparkline13-list, .sparkline14-list, .sparkline13-list, .sparkline11-list, .x-editable-list,
+.code-editor-single, .blog-details-inner, .charts-single-pro, .about-sparkline, .sparkline-list, .button-ad-wrap, .tab-content-details, .sparkline16-list, .sparkline15-list, .tinymce-single, .single-product-item, .courses-inner, .single-latest-item, .product-payment-inner-st, .profile-info-inner, .contact-panel, .widget-int-shape, .social-media-edu{
 	padding:20px;
 	background:#fff;
 }
@@ -139,7 +140,7 @@ body {}
 /*  4. left sidebar
 /*----------------------------------------*/
 .all-content-wrapper {
-    margin-left: 200px;
+    /* margin-left: 200px; */
     transition: all 0.3s;
 }
 .left-sidebar-pro {
@@ -2019,16 +2020,18 @@ ul.two-part-sp li{
 	display:block;
 }
 .header-top-area {
-    position: fixed;
+  /* position: fixed; */
+    position: relative;
     background: -webkit-linear-gradient(178deg, #e12503 0%, #85060c 100%);
     background: linear-gradient(178deg, #e12503 0%, #85060c 100%);
     z-index: 99;
-    left: 200px;
+    /* left: 200px; */
     right: 0;
     top: 0;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-bottom:10px;
     transition: all 0.3s;
-    height: 50px;
+    /* height: 50px; */
 }
 .jqstooltip {
   width: auto !important;

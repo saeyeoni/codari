@@ -9,17 +9,18 @@ body {line-height: 20px;}
 /********************************
     header 상단바 최상위메뉴
 ********************************/
+.logobox{width: 78px; height: 35px;padding: 0.2rem;}
   .nav-top{padding-top:5px;}
   #menu1{color:black;}
   #content{padding: 0 10px 0 10px;}
   #content > a {position:fixed;}
   .navbar-btn{padding: 0px;}
-  .header-size{height: 40px;}
+  /* .header-size{height: 40px;} */
   .on{background-color: #F6F8FA;color:#98b949 !important}
   .nav_top li {border-radius: 15px 15px 0 0 / 15px 15px 0 0;}
   .nav-top li a {color:#fff; border-radius: 15px 15px 0 0 / 15px 15px 0 0;font-size:16px;font-weight: bold;min-width: 120px;text-align: center;}
   .header-top-menu ul li:hover a{color:#98b949; background-color: #F6F8FA !important;}
-  .logout-btn{float: right;margin: 4px;padding: 4px 8px 4px 8px;}
+  .logout-btn{position:absolute; right: 0;margin: 4px 15px 4px 4px;padding: 4px 8px 4px 8px;}
 
 /********************************
             sidebar
@@ -34,25 +35,25 @@ body {line-height: 20px;}
   .regist-span{min-width:100px;}
 
 
+
 /********************************
             노트조회
 ********************************/
 /*brandlist*/
 #brand_nm{display: inline-block;position:relative;left: 200px;padding-top:10px;font-weight: bold;margin:0 0 0 10px;}
-.brands{z-index: 999;height: 100vh;width: 200px;position: fixed;background-color: rgb(255, 255, 255);border-right: 2px solid #28a745;}
+.brands{z-index: 9;height:85vh;width:200px; position: absolute;background-color: rgb(255, 255, 255);border-right: 2px solid #28a745;}
 .brands > h5{  padding-top:10px;  display:table;width:inherit;text-align: center;vertical-align: middle;border-bottom: 2px solid #28a745;font-weight: bold;}
-.brands > ul{padding-left:10px;display: table-cell;}
-.brands > ul >span{display: flex; font-size: 0.95rem; line-height: 18px; margin-bottom: 15px;}
-.brands > ul >span >i {cursor:pointer; margin-right:10px; color:#4e4e4e }
-.brands > ul >span >i:hover { color:#fa1010;}
-
-
-.brands > ul > span >li{cursor:pointer;  }
+.brnads_ {overflow: scroll;}
+.brands_ > ul{padding-left:10px;display: table-cell;}
+.brands_ > ul >span{display: flex;  line-height: 18px; margin-bottom: 15px;}
+.brands_ > ul >span >i {cursor:pointer; margin-right:10px; color:#4e4e4e }
+.brands_ > ul >span >i:hover { color:#fa1010;}
+.brands_ > ul > span >li{cursor:pointer;  }
 .active, .brandlist-t > span> li:hover{background-color: #c3e6cb;}
 
 /*테이블div*/
 /* .tables{position:relative;left: 200px;width:70%; height:80%; overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;} */
-.tables{position:relative;left: 200px;width:72vw;height:80vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
+.tables{position:relative;left: 200px;width:77vw;height:82vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
 
 /*최초등록정보 테이블*/
 .info{text-align:center;width: max-content; position:relative; background-color: #fff; margin:0;z-index:99;}
@@ -61,9 +62,10 @@ body {line-height: 20px;}
 
 /*내용 테이블*/
 #t0{table-layout:fixed;}
-.note{position:relative; left:0px; z-index:9;width:130px;font-weight: bold;background-color: rgb(255, 251, 227);vertical-align: middle !important;text-align: center;}
-.use{position:relative; left:0px; z-index:9; width:100px;background-color:rgb(247, 209, 131);text-align:center;vertical-align: middle !important;}
-.prd{position:relative; left:0px; z-index:9; width:100px;background-color:rgb(196, 223, 184);text-align:center;vertical-align: middle !important}
+.note{position:relative; left:0px; z-index:9;width:110px;font-weight: bold;background-color: rgb(255, 251, 227);vertical-align: middle !important;text-align: center;}
+.use{position:relative; left:0px; z-index:9; width:110px;background-color:rgb(247, 209, 131);text-align:center;vertical-align: middle !important;}
+.subt{position:relative; left:0px; z-index:9; width:220px;background-color:rgb(247, 209, 131);text-align:center;vertical-align: middle !important;}
+.prd{position:relative; left:0px; z-index:9; width:110px;background-color:rgb(196, 223, 184);text-align:center;vertical-align: middle !important}
 .cont{width:400px; z-index:0;}
 .cont a {color:#212121; white-space: pre-wrap;}
 .cont a:hover {color:#3254ab; font-weight:bold;text-decoration: none;}
@@ -71,3 +73,20 @@ body {line-height: 20px;}
 .regist{width:400px;  background-color:#daf1f7 ;text-align: center;}
 .regist a{color:blue;}
 .regist a:hover{ color:#f96449;font-weight:bold; text-decoration: none;}
+
+.back-btn{display: none;}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .brands{width:180px;}
+  .tables{left:180px;}
+  #brand_nm{left:180px;}
+  #btn-regist{left:180px;}
+  .first-date, .first-write{width:340px;}
+  #first-date, #first-write{width:270px;}
+  .note{width:90px;}
+  .use{width:90px;}
+  .subt{width:180px;}
+  .prd{width:90px;}
+  .cont, .nonetd, .regist{width:340px;}
+
+}
