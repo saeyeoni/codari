@@ -2,7 +2,10 @@
 
 namespace App\Traits;
 
-trait ipCheckTrait
+use Illuminate\Support\Str;
+
+
+trait ConnectorInfoTrait
 {
   public function ipCheck(){
     $request = request();
@@ -21,8 +24,16 @@ trait ipCheckTrait
 
     curl_close($ch);
     $decodeJsonData = json_decode($data, true);
-    dd($decodeJsonData);
     return ($decodeJsonData['whois']['countryCode']);
   }
 
+  public function deviceCheck(){
+    $request = request();
+    $userAgent = $request->header('User-Agent');
+    if(Str::contains($userAgent, 'Windows')){
+      return 'win';
+    }else{
+      return 'mobile';
+    }
+  }
 }

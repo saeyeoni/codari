@@ -9,6 +9,8 @@ use App\Models\NoteRegist;
 use App\Models\NoteHistory;
 use App\Models\setting\EmpMaster;
 use App\Models\setting\PgmPermit;
+use App\Traits\ConnectorInfoTrait;
+
 
 function alertMasg($param){
   echo("<script>alert('".$param."');</script>");
@@ -18,6 +20,8 @@ function jsFunCall($param){
 }
 class M02Controller extends Controller
 {
+  use ConnectorInfoTrait;
+
   public function show(NoteRegist $id){
     $login_id = session()->get('login_id');
     $get_edit_permit =PgmPermit::where([['emp_id',$login_id],['edit_permit',1]])->get('pgm_id')->toArray();
@@ -51,7 +55,9 @@ class M02Controller extends Controller
     NoteRegist::where('id', $id->id)
     ->delete();
     alertMasg("삭제되었습니다.");
-    return jsFunCall("opener.liClick(".$brand_id.",".$brand_nm.");close();");
+
+      return jsFunCall("opener.liClick(".$brand_id.",".$brand_nm.");close();");
+
   }
   public function update(NoteRegist $id){
     $brand_id = $id->brand_id;
@@ -67,8 +73,13 @@ class M02Controller extends Controller
       'content'=>$new_content,
       'emp_id' => $emp_id,
     ]);
-    alertMasg("수정되었습니다.");
-    return jsFunCall("opener.liClick('".$brand_id."','".$brand_nm."'); close();");
+    alertMasg("수정되었습니다!.");
+
+    $device = $this->deviceCheck();
+    if($device == 'win'){
+      return jsFunCall("opener.liClick(".$brand_id.",".$brand_nm.");close();");
+    }
+    return jsFunCall("history.back();");
   }
 
 

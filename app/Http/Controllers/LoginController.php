@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\ipCheckTrait;
+use App\Traits\ConnectorInfoTrait;
 use App\Models\setting\EmpMaster;
 use App\Models\setting\PgmPermit;
 use Illuminate\Support\Arr;
@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-/*로그인시 해외접속 가능 판단을 위해 ipCheckTrait사용
-  로컬 작업시 ipCheckTrait 미사용 (주석처리)*/
+/*로그인시 해외접속 가능 판단을 위해 ConnectorInfoTrait의 ipCheck()사용
+  로컬 작업시 ConnectorInfoTrait 미사용 (주석처리)*/
 class LoginController extends Controller
 {
-  //로컬작업시 ipCheckTrait 미사용
-  // use ipCheckTrait;
+  //로컬작업시 ConnectorInfoTrait 미사용
+  // use ConnectorInfoTrait;
   public function login(){
     return view('login.login');
   }

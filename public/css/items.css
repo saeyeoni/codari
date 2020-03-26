@@ -53,7 +53,7 @@ body {line-height: 20px;}
 
 /*테이블div*/
 /* .tables{position:relative;left: 200px;width:70%; height:80%; overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;} */
-.tables{position:relative;left: 200px;width:77vw;height:82vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
+.tables{position:relative;left: 200px;width:80vw;height:82vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
 
 /*최초등록정보 테이블*/
 .info{text-align:center;width: max-content; position:relative; background-color: #fff; margin:0;z-index:99;}

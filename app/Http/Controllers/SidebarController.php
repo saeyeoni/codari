@@ -13,6 +13,7 @@ class SidebarController extends Controller
 {
   use sidebarTrait;
   public function index($menu_id,$pgm_id){
+
   $sidebar = $this->sidebar($menu_id)->all();
   $pgm_info = $this->sidebar($menu_id)->where('m_pgm_id',$pgm_id)->first();
   $request = Request();
