@@ -35,7 +35,6 @@ body {line-height: 20px;}
   .regist-span{min-width:100px;}
 
 
-
 /********************************
             노트조회
 ********************************/
@@ -53,7 +52,7 @@ body {line-height: 20px;}
 
 /*테이블div*/
 /* .tables{position:relative;left: 200px;width:70%; height:80%; overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;} */
-.tables{position:relative;left: 200px;width:80vw;height:82vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
+.tables{position:relative;left: 200px;width:85vw;height:82vh;overflow: scroll;border-top: 2px solid #28a745;padding: 1px 0 0 0;}
 
 /*최초등록정보 테이블*/
 .info{text-align:center;width: max-content; position:relative; background-color: #fff; margin:0;z-index:99;}
@@ -75,12 +74,10 @@ body {line-height: 20px;}
 .regist a:hover{ color:#f96449;font-weight:bold; text-decoration: none;}
 
 .back-btn{display: none;}
-
 @media (min-width: 768px) and (max-width: 991px) {
   .brands{width:180px;}
   .tables{left:180px;}
   #brand_nm{left:180px;}
-  #btn-regist{left:180px;}
   .first-date, .first-write{width:340px;}
   #first-date, #first-write{width:270px;}
   .note{width:90px;}
@@ -88,5 +85,4 @@ body {line-height: 20px;}
   .subt{width:180px;}
   .prd{width:90px;}
   .cont, .nonetd, .regist{width:340px;}
-
 }
