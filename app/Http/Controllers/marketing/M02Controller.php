@@ -55,9 +55,7 @@ class M02Controller extends Controller
     NoteRegist::where('id', $id->id)
     ->delete();
     alertMasg("삭제되었습니다.");
-
-      return jsFunCall("opener.liClick(".$brand_id.",".$brand_nm.");close();");
-
+    return jsFunCall("opener.liClick(".$brand_id.",".$brand_nm.");close();");
   }
   public function update(NoteRegist $id){
     $brand_id = $id->brand_id;
@@ -74,7 +72,6 @@ class M02Controller extends Controller
       'emp_id' => $emp_id,
     ]);
     alertMasg("수정되었습니다!.");
-
     $device = $this->deviceCheck();
     if($device == 'win'){
       return jsFunCall("opener.liClick(".$brand_id.",".$brand_nm.");close();");

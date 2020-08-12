@@ -32,9 +32,9 @@
       @else
         <select class="regist-sel form-control" name="brand_id" id="brand_id" onchange="changeBrand()">
           <option value="" selected></option><option value="direct" >직접입력</option>'
-        </select>
-        <input class="form-control" readonly="readonly" type="text" name="direct_brand" value="" placeholder="브랜드추가" />
-      @endif
+</select>
+<input class="form-control" readonly="readonly" type="text" name="direct_brand" value="" placeholder="브랜드추가" />
+@endif
     </div>
   </div>
   <div class="row">
@@ -44,7 +44,7 @@
         @if ($popup_div=='edit')
           <input class="form-control" type="text" name="name" value="{{ $id->note_type }}" readonly="readonly">
         @else
-          <input class="form-control" type="text" name="regist_note_type" value="" readonly="readonly">
+        <input class="form-control" type="text" name="regist_note_type" value="" readonly="readonly">
         @endif
       @else
         <select class="regist-sel form-control" name="note_type" id="note_type" onchange="changeSel(this)">
@@ -63,124 +63,124 @@
             <input class="form-control" type="text" name="name" value="{{ $id->map_name }}" readonly="readonly">
           </div>
         @else
-          <div class="input-group-sm form-inline" style="visibility:hidden" name="project"  id="project">
-            <div class="input-group-prepend"><span class="input-group-text regist-span">프로젝트 명</span></div>
-            <input class="form-control" type="text" name="regist_map_name" value="" readonly="readonly">
-          </div>
+        <div class="input-group-sm form-inline" style="visibility:hidden" name="project"  id="project">
+          <div class="input-group-prepend"><span class="input-group-text regist-span">프로젝트 명</span></div>
+          <input class="form-control" type="text" name="regist_map_name" value="" readonly="readonly">
+        </div>
         @endif
       @else
         <div class="input-group-sm form-inline" style="visibility:hidden" name="project"  id="project">
           <div class="input-group-prepend"><span class="input-group-text regist-span">프로젝트 명</span></div>
           <select class="regist-sel form-control" name="sel_pj" id="sel_pj" ></select>
           <input class="form-control" readonly="true" type="text" name="direct_sel_pj" value="" placeholder="Project Map 추가">
-        @endif
+      @endif
       </div>
     </div>
   </div>
 
   @if(isset($popup_div))
     @if($popup_div=='edit')
-      <div class="row" style="visibility:{{ $id->use_type== '' ? 'hidden' : 'visible'}}" id="use">
-        <div class=" col-md-12 input-group-sm form-inline">
-          <div class="input-group-prepend"><span class="input-group-text regist-span">사용군/소제목</span></span></div>
-          <input class="form-control" type="text" name="name" value="{{ $id->use_type }}" readonly="readonly">
-        </div>
-      </div>
-    @else
-      <div class="row" style="visibility:hidden" id="use">
-        <div class=" col-md-12 input-group-sm form-inline">
-          <div class="input-group-prepend"><span class="input-group-text regist-span">사용군/소제목</span></span></div>
-          <input class="form-control" type="text" name="regist_use_type" readonly="readonly">
-        </div>
-      </div>
-    @endif
-  @else
-    <div class="row" style="visibility:hidden" id="use">
-      <div class=" col-md-12 input-group-sm form-inline">
-        <div class="input-group-prepend"><span class="input-group-text regist-span">사용군/소제목</span></span></div>
-        <select class="regist-sel form-control" name="use_type" id="use_type" onchange="changeOption(this)"></select>
-        <input class="form-control" readonly="readonly" type="text" name="direct_use_type" value="" placeholder="사용군 추가">
-      </div>
+  <div class="row" style="visibility:{{ $id->use_type== '' ? 'hidden' : 'visible'}}" id="use">
+    <div class=" col-md-12 input-group-sm form-inline">
+      <div class="input-group-prepend"><span class="input-group-text regist-span">사용군/소제목</span></span></div>
+      <input class="form-control" type="text" name="name" value="{{ $id->use_type }}" readonly="readonly">
     </div>
-  @endif
+  </div>
+@else
+  <div class="row" style="visibility:hidden" id="use">
+    <div class=" col-md-12 input-group-sm form-inline">
+      <div class="input-group-prepend"><span class="input-group-text regist-span">사용군/소제목</span></span></div>
+      <input class="form-control" type="text" name="regist_use_type" readonly="readonly">
+    </div>
+  </div>
+@endif
+@else
+  <div class="row" style="visibility:hidden" id="use">
+    <div class=" col-md-12 input-group-sm form-inline">
+      <div class="input-group-prepend"><span class="input-group-text regist-span">사용군/소제목</span></span></div>
+      <select class="regist-sel form-control" name="use_type" id="use_type" onchange="changeOption(this)"></select>
+      <input class="form-control" readonly="readonly" type="text" name="direct_use_type" value="" placeholder="사용군 추가">
+    </div>
+  </div>
+@endif
 
-  @if(isset($popup_div))
-    @if($popup_div=='edit')
-      <div class="row"style="visibility:{{ $id->prd_type== '' ? 'hidden' : 'visible'}}" id="prd">
-        <div class=" col-md-12 input-group-sm form-inline">
-          <div class="input-group-prepend"><span class="input-group-text regist-span">제품군</span></span></div>
-          <input class="form-control" type="text" name="name" value="{{ $id->prd_type }}" readonly="readonly">
-        </div>
-      </div>
-    @else
-      <div class="row"style="visibility:hidden" id="prd">
-        <div class=" col-md-12 input-group-sm form-inline">
-          <div class="input-group-prepend"><span class="input-group-text regist-span">제품군</span></span></div>
-          <input class="form-control" type="text" name="regist_prd_type" value="" readonly="readonly">
-        </div>
-      </div>
-    @endif
-  @else
-    <div class="row"style="visibility:hidden" id="prd">
-      <div class=" col-md-12 input-group-sm form-inline">
-        <div class="input-group-prepend"><span class="input-group-text regist-span">제품군</span></span></div>
-        <select class="regist-sel form-control" name="prd_type" id="prd_type">
-        </select>
-        <input class="form-control" readonly="true" type="text" name="direct_prd_type" value="" placeholder="제품군 추가">
-      </div>
+@if(isset($popup_div))
+  @if($popup_div=='edit')
+  <div class="row"style="visibility:{{ $id->prd_type== '' ? 'hidden' : 'visible'}}" id="prd">
+    <div class=" col-md-12 input-group-sm form-inline">
+      <div class="input-group-prepend"><span class="input-group-text regist-span">제품군</span></span></div>
+      <input class="form-control" type="text" name="name" value="{{ $id->prd_type }}" readonly="readonly">
     </div>
-  @endif
+  </div>
+@else
+  <div class="row"style="visibility:hidden" id="prd">
+    <div class=" col-md-12 input-group-sm form-inline">
+      <div class="input-group-prepend"><span class="input-group-text regist-span">제품군</span></span></div>
+      <input class="form-control" type="text" name="regist_prd_type" value="" readonly="readonly">
+    </div>
+  </div>
+@endif
+@else
+  <div class="row"style="visibility:hidden" id="prd">
+    <div class=" col-md-12 input-group-sm form-inline">
+      <div class="input-group-prepend"><span class="input-group-text regist-span">제품군</span></span></div>
+      <select class="regist-sel form-control" name="prd_type" id="prd_type">
+      </select>
+      <input class="form-control" readonly="true" type="text" name="direct_prd_type" value="" placeholder="제품군 추가">
+    </div>
+  </div>
+@endif
 
   {{-- <div class="row">
-  <div class="col-md-12 input-group-sm form-inline">
-  @if(isset($id))
-  <br>
-@else
-<label><input class="form-control" type="checkbox" name="first_div" value="1">새로운열에추가</label>
-@endif
-</div>
-</div> --}}
-<div class="row">
-  <div class=" col-md-12 input-group-sm form-inline">
-    <textarea name="content" id="content" rows="20" cols="100" placeholder="">{{isset($id) ? $id->content : ''}}</textarea>
-  </div>
-  <div class="col-md-12 form-inline">
-    @if(isset($popup_div))
-      @if ($popup_div=='edit')
-        <div class="col-sm-3 reset-pd back-btn" >
-          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
-        </div>
-        @if(Str::contains('M02',$edit_permit))
-          <div class="col-sm-3 reset-pd" >
-            <button  class="btn btn-warning btn-block" type="button" name="button" onclick="updateNote()"><i class="fas fa-edit"></i> 수정</button>
+    <div class="col-md-12 input-group-sm form-inline">
+    @if(isset($id))
+      <br>
+    @else
+      <label><input class="form-control" type="checkbox" name="first_div" value="1">새로운열에추가</label>
+    @endif
+    </div>
+  </div> --}}
+  <div class="row">
+      <div class=" col-md-12 input-group-sm form-inline">
+        <textarea name="content" id="content" rows="20" cols="100" placeholder="">{{isset($id) ? $id->content : ''}}</textarea>
+      </div>
+      <div class="col-md-12 form-inline">
+        @if(isset($popup_div))
+        @if ($popup_div=='edit')
+          <div class="col-sm-3 reset-pd back-btn" >
+            <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
           </div>
-          @if(Session::get('login_grade') == 1 )
+          @if(Str::contains('M02',$edit_permit))
+            <div class="col-sm-3 reset-pd" >
+              <button  class="btn btn-warning btn-block" type="button" name="button" onclick="updateNote()"><i class="fas fa-edit"></i> 수정</button>
+            </div>
+            @if(Session::get('login_grade') == 1 )
             <div class="col-sm-3  reset-pd" >
               <button  class="btn btn-danger btn-block" type="button" name="button" onclick='deleteNote()'><i class="fas fa-trash-alt"></i> 삭제</button>
             </div>
           @endif
+          @endif
+        @else
+          <div class="col-sm-4 reset-pd back-btn">
+            <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
+
+          </div>
+          <div class="col-sm-4 reset-pd">
+              <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('direct_store')"><i class="fas fa-save"></i> 저장</button>
+          </div>
         @endif
-      @else
-        <div class="col-sm-4 reset-pd back-btn">
-          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
+        @else
+          <div class="col-md-2 reset-pd" >
+            <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
+          </div>
+            <div class="col-md-2 reset-pd" >
+              <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('store')"><i class="fas fa-save"></i> 저장</button>
+            </div>
 
-        </div>
-        <div class="col-sm-4 reset-pd">
-          <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('direct_store')"><i class="fas fa-save"></i> 저장</button>
-        </div>
-      @endif
-    @else
-      <div class="col-md-2 reset-pd" >
-        <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
+
+        @endif
       </div>
-      <div class="col-md-2 reset-pd" >
-        <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('store')"><i class="fas fa-save"></i> 저장</button>
-      </div>
-
-
-    @endif
-  </div>
-</div>
+    </div>
 </form>
 
 {{-- 수정팝업의 수정history --}}
@@ -199,13 +199,13 @@
         </thead>
         <tbody>
           @foreach( $history_list as $i=>$history)
-            <tr>
-              <th style="text-align:center; vertical-align:middle">{{ (count($history_list))-1-$i }}</th>
-              <td style="text-align:center; vertical-align:middle">{{date("Y-m-d" , strtotime($history->created_at))}}</td>
-              <td ><pre style="width:60vw;">{{$history->content}}</pre></td>
-              <td style="text-align:center; vertical-align:middle">{{$history->empmaster->emp_nm}}</td>
-            </tr>
-          @endforeach
+          <tr>
+            <th style="text-align:center; vertical-align:middle">{{ (count($history_list))-1-$i }}</th>
+            <td style="text-align:center; vertical-align:middle">{{date("Y-m-d" , strtotime($history->created_at))}}</td>
+            <td ><pre style="width:60vw;">{{$history->content}}</pre></td>
+            <td style="text-align:center; vertical-align:middle">{{$history->empmaster->emp_nm}}</td>
+          </tr>
+        @endforeach
 
         </tbody>
       </table>
@@ -224,9 +224,9 @@ window.addEventListener("DOMContentLoaded", function(){
     }
   }
   @if(isset($popup_div))
-  @if($popup_div == 'save')
-  getSelectInfo('direct_store');
-  @endif
+    @if($popup_div == 'save')
+    getSelectInfo('direct_store');
+    @endif
   @else
   getBrands('store');
   readOnlyBool('sel_pj', 'direct_sel_pj');
@@ -245,16 +245,16 @@ function getSelectInfo(){
   switch (getNote_type) {
     case '브랜드기조':
     case '신규런칭아이템':
-    document.getElementById("use").style.visibility="visible";
-    document.getElementById("prd").style.visibility="visible";
-    break;
+      document.getElementById("use").style.visibility="visible";
+      document.getElementById("prd").style.visibility="visible";
+      break;
     case 'Proposal map':
     case 'Proposal entry':
-    document.getElementById("use").style.visibility="visible";
-    break;
+      document.getElementById("use").style.visibility="visible";
+      break;
     case 'Project Map':
-    document.getElementById("project").style.visibility="visible";
-    break;
+      document.getElementById("project").style.visibility="visible";
+      break;
   }
   document.querySelector("input[name='regist_brand_id']").value = getBrand_id;
   document.querySelector("input[name='regist_note_type']").value = opener.document.querySelector("input[name='regist_note_type']").value;

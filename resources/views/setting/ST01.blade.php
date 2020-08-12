@@ -256,7 +256,7 @@ function search2(){
       {text:'프로그램ID', datafield:'pgm_id', width:'30%',editable:false},
       {text:'프로그램명', datafield:'m_pgm_nm', width:'40%',editable:false},
       {text: '프로그램권한',datafield: 'permit',width: '15%',align: 'center', columntype: 'checkbox'},
-      {text: '수정삭제권한',datafield: 'edit_permit',width: '15%',align: 'center', columntype: 'checkbox'},
+      {text: '수정권한',datafield: 'edit_permit',width: '15%',align: 'center', columntype: 'checkbox'},
 
     ],
     width: '100%',

@@ -1,8 +1,7 @@
 
 <h5 class="page-head-line">
   {{ $pgm_info->m_pgm_nm  }} ({{$pgm_info->m_pgm_id}})
-  <button type="button" id="btn-regist" name="button" class="btn btn-sm btn-primary" onclick="location.href='/overseas/O01'"><i class="fas fa-file"></i> 노트등록</button>
-
+  <button type="button" id="btn-regist" name="button" class="btn btn-sm btn-primary" onclick="location.href='/overseas/O01'"><i class="fas fa-edit"></i>노트등록</button>
 </h5>
 
 <div class="brands">
@@ -252,6 +251,4 @@
   function clear(){
     location.reload();
   }
-
-
 </script>

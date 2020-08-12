@@ -67,7 +67,7 @@
                       <a href="/main"><img class="main-logo" src="/images/logo_new.png" alt="" /></a>
                       {{-- <strong><a href="/main"><img src="/images/logosn.png" alt="" /></a></strong> --}}
                     </div>
-                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                     <div class="header-top-menu">
                       <ul class="nav nav-top">
                         <li id="marketing" class="nav-item btn-blueset"><a href="/marketing/M02" class="nav-link">마케팅</a></li>

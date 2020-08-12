@@ -141,46 +141,46 @@
     </div>
   </div> --}}
   <div class="row">
-    <div class=" col-md-12 input-group-sm form-inline">
-      <textarea name="content" id="content" rows="20" cols="100" placeholder="">{{isset($id) ? $id->content : ''}}</textarea>
-    </div>
-    <div class="col-md-12 form-inline">
-      @if(isset($popup_div))
-      @if ($popup_div=='edit')
-        <div class="col-sm-3 reset-pd back-btn" >
-          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
-        </div>
-        @if(Str::contains('M02',$edit_permit))
-          <div class="col-sm-3 reset-pd" >
-            <button  class="btn btn-warning btn-block" type="button" name="button" onclick="updateNote()"><i class="fas fa-edit"></i> 수정</button>
+      <div class=" col-md-12 input-group-sm form-inline">
+        <textarea name="content" id="content" rows="20" cols="100" placeholder="">{{isset($id) ? $id->content : ''}}</textarea>
+      </div>
+      <div class="col-md-12 form-inline">
+        @if(isset($popup_div))
+        @if ($popup_div=='edit')
+          <div class="col-sm-3 reset-pd back-btn" >
+            <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
           </div>
-          @if(Session::get('login_grade') == 1 )
-          <div class="col-sm-3  reset-pd" >
-            <button  class="btn btn-danger btn-block" type="button" name="button" onclick='deleteNote()'><i class="fas fa-trash-alt"></i> 삭제</button>
-          </div>
-        @endif
-        @endif
-      @else
-        <div class="col-sm-4 reset-pd back-btn">
-          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
+          @if(Str::contains('M02',$edit_permit))
+            <div class="col-sm-3 reset-pd" >
+              <button  class="btn btn-warning btn-block" type="button" name="button" onclick="updateNote()"><i class="fas fa-edit"></i> 수정</button>
+            </div>
+            @if(Session::get('login_grade') == 1 )
+            <div class="col-sm-3  reset-pd" >
+              <button  class="btn btn-danger btn-block" type="button" name="button" onclick='deleteNote()'><i class="fas fa-trash-alt"></i> 삭제</button>
+            </div>
+          @endif
+          @endif
+        @else
+          <div class="col-sm-4 reset-pd back-btn">
+            <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
 
-        </div>
-        <div class="col-sm-4 reset-pd">
-            <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('direct_store')"><i class="fas fa-save"></i> 저장</button>
-        </div>
-      @endif
-      @else
-        <div class="col-md-2 reset-pd" >
-          <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i> 뒤로가기</button>
-        </div>
+          </div>
+          <div class="col-sm-4 reset-pd">
+              <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('direct_store')"><i class="fas fa-save"></i> 저장</button>
+          </div>
+        @endif
+        @else
           <div class="col-md-2 reset-pd" >
-            <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('store')"><i class="fas fa-save"></i> 저장</button>
+            <button  class="btn btn-primary btn-block" type="button" name="button" onclick="javascript:history.back()"><i class="fas fa-undo"></i>뒤로가기</button>
           </div>
+            <div class="col-md-2 reset-pd" >
+              <button  class="btn btn-success btn-block" type="button" name="button" onclick="store('store')"><i class="fas fa-save"></i> 저장</button>
+            </div>
 
 
-      @endif
+        @endif
+      </div>
     </div>
-  </div>
 </form>
 {{-- 수정팝업의 수정history --}}
 @isset($history_list)
